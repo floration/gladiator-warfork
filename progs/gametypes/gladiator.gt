@@ -8,6 +8,7 @@ generic/matchstates.as;
 generic/bots.as;
 generic/awards.as;
 
+gladiator/stats.as;
 gladiator.as;
 gladiator/spinner.as;
 gladiator/modifiers.as;
