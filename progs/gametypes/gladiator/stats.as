@@ -4,7 +4,7 @@ const String stats_basepath = "stats/gladiator/";
 const String invalid_chars = "\\/:*?\"<>|";
 StatsFile@ stats_xp;
 
-void G_SPrint( String& msg )
+void G_SPrint( const String &in msg )
 {
     if ( gt_stats_debug.boolean )
         G_Print(msg);
@@ -56,7 +56,7 @@ class StatsFile
     String[] vars;
     String[] values;
 
-    StatsFile(String& path)
+    StatsFile(const String &in path)
     {
         this.path = stats_basepath + path + ".txt";
         String file = G_LoadFile( this.path );
@@ -94,12 +94,12 @@ class StatsFile
         G_SPrint("^2OK: ^7Wrote file: "+this.path+"\n");
     }
 
-    int getIndex(String& var)
+    int getIndex(const String &in var)
     {
         return this.vars.find(var);
     }
 
-    String get_opIndex(String& var)
+    String get_opIndex(const String &in var)
     {
         int index = this.getIndex(var);
         if ( index >= 0 )
@@ -107,7 +107,7 @@ class StatsFile
         return "";
     }
 
-    void set_opIndex(String& var, String& value)
+    void set_opIndex(const String &in var, const String &in value)
     {
         int index = this.getIndex(var);
         if ( index == -1 )
@@ -121,7 +121,7 @@ class StatsFile
         this.save();
     }
 
-    void add(String& var, int value)
+    void add(const String &in var, int value)
     {
         value += this[var].toInt();
         this[var] = String(value);

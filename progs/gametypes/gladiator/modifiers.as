@@ -35,7 +35,7 @@ String ModModeToString( uint mod_mode )
     return "none";
 }
 
-uint ModStringToMode( String& mod_string )
+uint ModStringToMode( const String &in mod_string )
 {
     if ( mod_string == "base" )
         return MOD_BASE;
@@ -47,7 +47,7 @@ uint ModStringToMode( String& mod_string )
     return MOD_NONE;
 }
 
-bool isValidMode( String& mod_string )
+bool isValidMode( const String &in mod_string )
 {
     return ( mod_string == "none" || mod_string == "base" || mod_string == "silly" || mod_string == "verysilly" );
 }
@@ -129,7 +129,7 @@ void StopModifiers()
         modStops[currentMod]();
 }
 
-void addMod(uint modType, float weight, String& name, modInit@ init, modThink@ think, modStop@ stop, uint weaponMask)
+void addMod(uint modType, float weight, const String &in name, modInit@ init, modThink@ think, modStop@ stop, uint weaponMask)
 {
     modTypes.push_back(modType);
     modWeights.push_back(weight);

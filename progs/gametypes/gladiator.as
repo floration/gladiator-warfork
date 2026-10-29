@@ -228,7 +228,7 @@ class cDARound
         }
     }
 
-    void roundAnnouncementPrint( String &string )
+    void roundAnnouncementPrint( const String &in string )
     {
         if ( string.len() <= 0 )
             return;
@@ -705,7 +705,7 @@ void target_connectroom(Entity@ self)
 /// LOCAL FUNCTIONS
 ///*****************************************************************
 
-void G_DPrint( String& msg )
+void G_DPrint( const String &in msg )
 {
     if ( gt_debug.boolean )
         G_Print(msg);
