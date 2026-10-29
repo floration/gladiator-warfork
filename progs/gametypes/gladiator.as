@@ -882,6 +882,10 @@ Entity @GT_SelectSpawnPoint( Entity @self )
     if ( self.isGhosting() )
         return null;
 
+    // map has no gladiator arenas (e.g. stock wfdm maps): use normal dm spawns
+    if ( gladiator_rooms.size() == 0 )
+        return GENERIC_SelectBestRandomSpawnPoint( self, "info_player_deathmatch" );
+
     Team @enemyTeam;
     Entity @enemy;
     Entity @room;
